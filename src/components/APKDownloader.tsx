@@ -9,12 +9,17 @@ interface APKDownloaderProps {
 }
 
 export function triggerDownload() {
-  const link = document.createElement('a');
-  link.href = '/jeebha.apk';
-  link.setAttribute('download', 'jeebha.apk');
-  document.body.appendChild(link);
-  link.click();
-  document.body.removeChild(link);
+  const url = (import.meta as any).env.VITE_APK_DOWNLOAD_URL || '/jeebha.apk';
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    window.open(url, '_blank');
+  } else {
+    const link = document.createElement('a');
+    link.href = url;
+    link.setAttribute('download', 'jeebha.apk');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  }
 }
 
 export default function APKDownloader({ isOpen, onClose }: APKDownloaderProps) {
