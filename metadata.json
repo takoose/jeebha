@@ -1,0 +1,6 @@
+{
+  "name": "Jeebha Web",
+  "description": "The construction super-app for North Africa. Jeebha connects shop owners, builders, and drivers with real-time logistics, material marketplace, and professional verification.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,119 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "System users including customers, drivers, and admins",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string", "enum": ["admin", "shop_manager", "driver", "customer"] },
+        "phone": { "type": "string" },
+        "avatarUrl": { "type": "string" },
+        "onboardingComplete": { "type": "boolean" },
+        "verified": { "type": "boolean" },
+        "verificationStatus": { "type": "string", "enum": ["unverified", "pending", "verified", "rejected"] },
+        "truckType": { "type": "string" },
+        "workingArea": { "type": "string" },
+        "licenseNumber": { "type": "string" },
+        "companyName": { "type": "string" },
+        "licenseUrl": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["uid", "email", "role"]
+    },
+    "Shop": {
+      "title": "Shop",
+      "description": "Shops selling construction materials",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "ownerId": { "type": "string" },
+        "address": { "type": "string" },
+        "location": { "type": "object", "properties": { "lat": { "type": "number" }, "lng": { "type": "number" } } },
+        "phone": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "bannerUrl": { "type": "string" },
+        "additionalPhotos": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "enum": ["pending", "active", "suspended"] },
+        "rating": { "type": "number" },
+        "businessLicenseUrl": { "type": "string" }
+      },
+      "required": ["name", "ownerId"]
+    },
+    "Product": {
+      "title": "Product",
+      "description": "Construction material products",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "description": { "type": "string" },
+        "shopId": { "type": "string" },
+        "price": { "type": "number" },
+        "category": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "stock": { "type": "number" }
+      },
+      "required": ["name", "shopId", "price"]
+    },
+    "Order": {
+      "title": "Order",
+      "description": "Customer orders",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "customerId": { "type": "string" },
+        "shopId": { "type": "string" },
+        "driverId": { "type": "string" },
+        "productIds": { "type": "array", "items": { "type": "string" } },
+        "status": { "type": "string", "enum": ["pending", "assigned", "picked_up", "delivered", "cancelled"] },
+        "totalAmount": { "type": "number" },
+        "deliveryAddress": { "type": "string" },
+        "deliveryLocation": { "type": "object", "properties": { "lat": { "type": "number" }, "lng": { "type": "number" } } },
+        "currentLocation": { "type": "object", "properties": { "lat": { "type": "number" }, "lng": { "type": "number" }, "updatedAt": { "type": "string", "format": "date-time" } } },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["customerId", "shopId", "status", "totalAmount"]
+    },
+    "Message": {
+      "title": "Message",
+      "description": "Chat messages",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "channelId": { "type": "string" },
+        "senderId": { "type": "string" },
+        "text": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["channelId", "senderId", "text"]
+    },
+    "Notification": {
+      "title": "Notification",
+      "description": "User notifications",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string", "enum": ["info", "success", "warning", "error"] },
+        "read": { "type": "boolean" },
+        "link": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "title", "message", "type", "read"]
+    }
+  },
+  "firestore": {
+    "users": { "schema": "User", "description": "Collection of users" },
+    "shops": { "schema": "Shop", "description": "Collection of shops" },
+    "products": { "schema": "Product", "description": "Collection of products" },
+    "orders": { "schema": "Order", "description": "Collection of orders" },
+    "messages": { "schema": "Message", "description": "Collection of chat messages" },
+    "notifications": { "schema": "Notification", "description": "Collection of user notifications" }
+  }
+}
