@@ -6,7 +6,7 @@ export default function SiteLogistics() {
     <PageTemplate 
       title="Site Logistics"
       subtitle="Optimize your site flow with Jeebha's intelligent logistics network. Track every load, manage your fleet, and reduce downtime."
-      heroImage="/img/logistics_fleet.jpg"
+      heroImage="/img/logistics_fleet.png"
       content={
         <div className="space-y-20">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
