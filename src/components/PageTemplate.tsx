@@ -14,27 +14,28 @@ export default function PageTemplate({ title, subtitle, content, heroImage }: Pa
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 px-8 py-4">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-100 px-4 sm:px-8 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" className="text-3xl font-black italic tracking-tighter text-navy flex items-center gap-4 group">
-            <img src="/img/jeebha.svg" alt="Jeebha" className="w-14 h-14 group-hover:scale-110 transition-transform" />
+          <Link to="/" className="text-xl sm:text-2xl lg:text-3xl font-black italic tracking-tighter text-navy flex items-center gap-2 sm:gap-4 group">
+            <img src="/img/jeebha.svg" alt="Jeebha" className="w-10 h-10 lg:w-14 lg:h-14 group-hover:scale-110 transition-transform" />
             Jeebha
           </Link>
-          <Link to="/" className="flex items-center gap-2 text-slate-500 hover:text-navy transition-colors font-bold text-sm uppercase tracking-widest">
+          <Link to="/" className="flex items-center gap-2 text-slate-500 hover:text-navy transition-colors font-bold text-xs sm:text-sm uppercase tracking-widest">
             <ArrowLeft size={18} />
-            Back to Home
+            <span className="hidden sm:inline">Back to Home</span>
+            <span className="inline sm:hidden">Back</span>
           </Link>
         </div>
       </nav>
 
-      <main className="pt-32 pb-24 px-8 font-sans">
+      <main className="pt-28 pb-16 px-4 sm:px-8 font-sans">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-20 items-center mb-20">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-20 items-center mb-12 lg:mb-20">
             <div>
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-block p-2 bg-yellow/10 rounded-full px-6 font-bold text-yellow border border-yellow/20 text-xs uppercase tracking-widest mb-6"
+                className="inline-block p-2 bg-yellow/10 rounded-full px-4 sm:px-6 font-bold text-yellow border border-yellow/20 text-[10px] sm:text-xs uppercase tracking-widest mb-4 sm:mb-6"
               >
                 Official Jeebha Page
               </motion.div>
@@ -42,7 +43,7 @@ export default function PageTemplate({ title, subtitle, content, heroImage }: Pa
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 }}
-                className="text-6xl font-black text-navy leading-none tracking-tighter mb-8"
+                className="text-3xl sm:text-4xl lg:text-6xl font-black text-navy leading-tight lg:leading-none tracking-tighter mb-4 lg:mb-8"
               >
                 {title}
               </motion.h1>
@@ -50,7 +51,7 @@ export default function PageTemplate({ title, subtitle, content, heroImage }: Pa
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 }}
-                className="text-xl text-slate-500 font-medium leading-relaxed max-w-xl"
+                className="text-base sm:text-lg lg:text-xl text-slate-500 font-medium leading-relaxed max-w-xl"
               >
                 {subtitle}
               </motion.p>
@@ -59,7 +60,7 @@ export default function PageTemplate({ title, subtitle, content, heroImage }: Pa
               <motion.div 
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className="relative aspect-video rounded-[3rem] overflow-hidden shadow-2xl"
+                className="relative aspect-video rounded-3xl lg:rounded-[3rem] overflow-hidden shadow-2xl"
               >
                  <img src={heroImage} className="w-full h-full object-cover" alt={title} />
                  <div className="absolute inset-0 bg-navy/20"></div>
@@ -76,13 +77,13 @@ export default function PageTemplate({ title, subtitle, content, heroImage }: Pa
           </motion.div>
 
           {/* Call to Action */}
-          <div className="mt-32 p-12 bg-navy rounded-[3rem] text-white overflow-hidden relative group">
-             <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="mt-16 lg:mt-32 p-6 sm:p-12 bg-navy rounded-3xl lg:rounded-[3rem] text-white overflow-hidden relative group">
+             <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 lg:gap-8">
                 <div>
-                   <h3 className="text-3xl font-black mb-2">Ready to transform your site?</h3>
-                   <p className="text-slate-400 font-medium">Join thousands of companies using Jeebha today.</p>
+                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-black mb-2">Ready to transform your site?</h3>
+                   <p className="text-slate-400 font-medium text-sm sm:text-base">Join thousands of companies using Jeebha today.</p>
                 </div>
-                <Link to="/login" className="bg-yellow text-navy px-10 py-5 rounded-2xl font-black uppercase tracking-widest text-sm hover:scale-105 transition-all flex items-center gap-3 shadow-xl shadow-yellow/20">
+                <Link to="/login" className="w-full lg:w-auto text-center justify-center bg-yellow text-navy px-6 py-4 sm:px-10 sm:py-5 rounded-2xl font-black uppercase tracking-widest text-xs sm:text-sm hover:scale-105 transition-all flex items-center gap-3 shadow-xl shadow-yellow/20">
                    Get started now
                    <ArrowRight size={18} />
                 </Link>
