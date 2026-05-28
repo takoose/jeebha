@@ -279,7 +279,7 @@ export default function Home() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="src/img/hero_image.jpg" 
+            src="/img/hero_image.jpg" 
             alt="Construction" 
             className="w-full h-full object-cover"
           />
