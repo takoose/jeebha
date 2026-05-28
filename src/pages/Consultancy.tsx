@@ -6,7 +6,7 @@ export default function Consultancy() {
     <PageTemplate 
       title="Consultancy"
       subtitle="Expert guidance for your construction projects. From feasibility studies to technical optimization, our experts are here to help."
-      heroImage="/img/team_photo.jpg"
+      heroImage="/img/team_photo.png"
       content={
         <div className="grid md:grid-cols-2 gap-8">
            <div className="p-12 bg-navy text-white rounded-[3rem]">
