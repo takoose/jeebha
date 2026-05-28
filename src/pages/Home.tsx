@@ -209,7 +209,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-12">
             <Link to="/" className="flex items-center gap-4 group">
-              <img src="/img/jeebha.svg" alt="Jeebha" className="w-16 h-16 group-hover:scale-110 transition-transform" />
+              <img src="src/img/jeebha.svg" alt="Jeebha" className="w-16 h-16 group-hover:scale-110 transition-transform" />
               <span className="text-4xl font-black italic tracking-tighter group-hover:text-yellow transition-colors">
                 Jeebha
               </span>
