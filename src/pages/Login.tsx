@@ -42,42 +42,42 @@ export default function Login() {
       <div className="absolute bottom-10 right-1/4 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-[150px] pointer-events-none"></div>
 
       {/* Header */}
-      <header className="px-10 py-8 relative z-10 w-full max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-4 group">
-          <img src="/img/jeebha.svg" alt="Jeebha Logo" className="w-14 h-14 group-hover:scale-110 transition-transform" />
-          <span className="text-3xl font-black italic tracking-tighter text-white group-hover:text-yellow transition-colors">Jeebha</span>
+      <header className="px-4 sm:px-10 py-4 sm:py-8 relative z-10 w-full max-w-7xl mx-auto flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-2 sm:gap-4 group">
+          <img src="/img/jeebha.svg" alt="Jeebha/Logo" className="w-10 h-10 sm:w-14 sm:h-14 group-hover:scale-110 transition-transform" />
+          <span className="text-xl sm:text-3xl font-black italic tracking-tighter text-white group-hover:text-yellow transition-colors">Jeebha</span>
         </Link>
-        <div className="flex items-center gap-6">
+        <div className="flex items-center gap-4 sm:gap-6">
           <LanguagePicker dark={true} />
-          <Link to="/" className="flex items-center gap-2 text-slate-400 hover:text-white transition-all font-bold text-xs uppercase tracking-widest">
+          <Link to="/" className="flex items-center gap-1.5 sm:gap-2 text-slate-400 hover:text-white transition-all font-bold text-[10px] sm:text-xs uppercase tracking-widest">
             <ArrowLeft size={16} />
-            {t('modal.restart_btn').includes('Res') ? 'Back' : 'Tura'}
+            <span>{t('modal.restart_btn').includes('Res') ? 'Back' : 'Tura'}</span>
           </Link>
         </div>
       </header>
 
       {/* Main Container */}
-      <main className="flex-1 w-full max-w-7xl mx-auto px-6 py-12 grid lg:grid-cols-12 gap-12 items-center relative z-10">
+      <main className="flex-1 w-full max-w-7xl mx-auto px-4 sm:px-6 py-6 lg:py-12 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
         
         {/* Left column: Callouts / Details */}
-        <div className="lg:col-span-7 space-y-10 text-left">
+        <div className="lg:col-span-7 space-y-6 sm:space-y-10 text-left">
           <div className="space-y-4">
             <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-yellow text-xs font-black uppercase tracking-widest">
               <ShieldCheck size={14} className="text-yellow" />
               {t('hero.badge')}
             </span>
-            <h1 className="text-5xl md:text-7xl font-black uppercase italic leading-[0.9] tracking-tighter">
+            <h1 className="text-3xl sm:text-5xl md:text-7xl font-black uppercase italic leading-[0.95] md:leading-[0.9] tracking-tighter">
               {t('hero.title').split(' n')[0]} <br/>
               <span className="text-yellow">Jeebha Mobile</span> <br/>
               Super-App.
             </h1>
-            <p className="text-slate-400 font-medium text-lg max-w-2xl leading-relaxed">
+            <p className="text-slate-400 font-medium text-base sm:text-lg max-w-2xl leading-relaxed">
               {t('hero.subtitle')}
             </p>
           </div>
 
           {/* Quick Specifications */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
             <SpecCard label={t('hero.spec_file')} value="jeebha.apk" />
             <SpecCard label={t('hero.spec_size')} value="~18.2 MB" />
             <SpecCard label={t('hero.spec_version')} value="v1.0.0" />
@@ -85,10 +85,10 @@ export default function Login() {
           </div>
 
           {/* Core App Actions */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
             <button
               onClick={triggerDownload}
-              className="flex-1 sm:flex-initial bg-yellow text-navy px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-yellow/20 flex items-center justify-center gap-3"
+              className="w-full sm:w-auto bg-yellow text-navy px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-widest hover:scale-105 transition-all shadow-xl shadow-yellow/20 flex items-center justify-center gap-3"
             >
               <Download size={18} />
               {t('hero.btn_download')}
@@ -97,7 +97,7 @@ export default function Login() {
               href="https://play.google.com"
               target="_blank"
               rel="noreferrer"
-              className="flex-1 sm:flex-initial bg-white/5 border border-white/10 hover:bg-white/10 text-white px-10 py-5 rounded-2xl font-black text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-2"
+              className="w-full sm:w-auto bg-white/5 border border-white/10 hover:bg-white/10 text-white px-8 py-4 sm:px-10 sm:py-5 rounded-2xl font-black text-xs sm:text-sm uppercase tracking-widest transition-all flex items-center justify-center gap-2"
             >
               {t('hero.btn_playstore')}
               <ExternalLink size={14} className="opacity-60" />
