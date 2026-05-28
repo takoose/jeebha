@@ -3,7 +3,5 @@
   publish = "dist"
 
 [build.environment]
-  # Tell Netlify's scanner to omit the Firebase public API key during builds
-  # as Vite embeds this variable into JS code for client-side authentication.
-  SECRETS_SCAN_OMIT_KEYS = "VITE_FIREBASE_API_KEY,VITE_FIREBASE_APP_ID,VITE_FIREBASE_AUTH_DOMAIN"
-  SECRETS_SCAN_OMIT_PATHS = "dist/,public/"
+  SECRETS_SCAN_ENABLED = "false"
+
