@@ -5,7 +5,7 @@ export default function OurStory() {
     <PageTemplate 
       title="Our Story"
       subtitle="Founded in 2024, Jeebha is on a mission to digitize the construction supply chain in Africa."
-      heroImage="/img/team_photo.jpg"
+      heroImage="/img/team_photo.png"
       content={
         <div className="max-w-3xl space-y-8 text-lg text-slate-500 font-medium leading-relaxed">
            <p>
