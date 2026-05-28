@@ -17,7 +17,7 @@ export default function Careers() {
     <div className="min-h-screen bg-white text-navy font-sans">
       {/* Hero */}
       <section className="bg-navy pt-40 pb-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[url('/img/careers_hero.jpg')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-20 bg-[url('/img/careers_hero.png')] bg-cover bg-center"></div>
         <div className="max-w-7xl mx-auto relative z-10 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -103,7 +103,7 @@ export default function Careers() {
 
           <div className="mt-20 p-12 bg-white rounded-[3rem] text-center border border-slate-100 shadow-xl relative overflow-hidden group">
             <div className="absolute inset-x-0 bottom-0 h-1 bg-yellow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
-            <img src="/img/team_photo.jpg" className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none" alt="Team" />
+            <img src="/img/team_photo.png" className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none" alt="Team" />
             <Users size={40} className="mx-auto mb-6 text-yellow" />
             <h4 className="text-xl font-black mb-4 uppercase tracking-tight">Not seeing the right fit?</h4>
             <p className="text-slate-500 font-bold text-sm uppercase tracking-widest mb-8">Send us your CV anyway, we're always looking for talents</p>
