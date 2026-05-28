@@ -279,7 +279,7 @@ export default function Home() {
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
-            src="/img/hero_image.jpg" 
+            src="src/img/hero_image.jpg" 
             alt="Construction" 
             className="w-full h-full object-cover"
           />
@@ -553,15 +553,15 @@ export default function Home() {
           <div className="grid grid-cols-2 gap-6 relative">
              <div className="absolute -inset-10 bg-slate-50 -z-10 rounded-full blur-3xl opacity-50"></div>
             <div className="space-y-6">
-              <PhotoCard src="/img/materials_showcase.jpg" aspect="aspect-[3/4]" />
+              <PhotoCard src="src/img/materials_showcase.jpg" aspect="aspect-[3/4]" />
               <div className="bg-yellow rounded-[2.5rem] p-8 text-navy flex flex-col justify-between aspect-square">
                  <Plus size={40} className="opacity-40" />
                  <span className="text-5xl sm:text-7xl font-black leading-none tracking-tighter uppercase italic">{t('service.site_ready')}</span>
               </div>
             </div>
             <div className="pt-20 space-y-6">
-              <PhotoCard src="/img/product_steel.jpg" aspect="aspect-[3/4]" />
-              <PhotoCard src="/img/product_cement.jpg" aspect="aspect-square" />
+              <PhotoCard src="src/img/product_steel.jpg" aspect="aspect-[3/4]" />
+              <PhotoCard src="src/img/product_cement.jpg" aspect="aspect-square" />
             </div>
           </div>
         </div>
@@ -571,7 +571,7 @@ export default function Home() {
       <section className="py-24 px-6 bg-slate-50" id="logistics">
          <div className="max-w-7xl mx-auto rounded-[4rem] bg-white overflow-hidden shadow-2xl flex flex-col lg:flex-row">
             <div className="lg:w-1/2 h-[500px] lg:h-auto border-r border-slate-50">
-               <img src="/img/logistics_fleet.jpg" className="w-full h-full object-cover" alt="Join us" />
+               <img src="src/img/logistics_fleet.jpg" className="w-full h-full object-cover" alt="Join us" />
             </div>
             <div className="lg:w-1/2 p-12 lg:p-20 flex flex-col justify-center">
                <div className="flex items-center gap-3 mb-6" id="about">
