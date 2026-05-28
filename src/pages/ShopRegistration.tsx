@@ -9,7 +9,7 @@ export default function ShopRegistration() {
     <div className="min-h-screen bg-white text-navy font-sans">
       {/* Hero */}
       <section className="bg-navy pt-40 pb-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-20 bg-[url('/img/shop_placeholder.jpg')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 opacity-20 bg-[url('/img/shop_placeholder.png')] bg-cover bg-center"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
