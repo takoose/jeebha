@@ -203,14 +203,16 @@ export default function Home() {
     <div className="min-h-screen bg-white text-[#0F172A] font-sans">
       {/* Navigation */}
       <nav className={cn(
-        "fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-6 py-4",
-        isScrolled ? "bg-white shadow-lg py-3 text-[#0F172A]" : "bg-transparent text-white"
+        "fixed top-0 left-0 right-0 z-[100] transition-all duration-300 px-4 md:px-6 py-3 md:py-4",
+        isScrolled 
+          ? "bg-white shadow-lg text-[#0F172A]" 
+          : "bg-navy/95 lg:bg-transparent backdrop-blur-md lg:backdrop-blur-none text-white font-medium"
       )}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-12">
-            <Link to="/" className="flex items-center gap-4 group">
-              <img src="/img/jeebha.svg" alt="Jeebha" className="w-16 h-16 group-hover:scale-110 transition-transform" />
-              <span className="text-4xl font-black italic tracking-tighter group-hover:text-yellow transition-colors">
+            <Link to="/" className="flex items-center gap-2 md:gap-4 group">
+              <img src="/img/jeebha.svg" alt="Jeebha" className="w-10 h-10 md:w-16 md:h-16 group-hover:scale-110 transition-transform" />
+              <span className="text-2xl md:text-4xl font-black italic tracking-tighter group-hover:text-yellow transition-colors">
                 Jeebha
               </span>
             </Link>
@@ -247,16 +249,17 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 md:gap-4">
             <LanguagePicker dark={isScrolled} />
             
             {user ? (
-               <Link to="/dashboard" className="flex items-center gap-2 bg-navy text-white px-6 py-2.5 rounded-full font-bold text-sm hover:scale-105 transition-all shadow-lg shadow-navy/20">
-                  <UserIcon size={16} className="text-yellow" />
-                  {t('nav.dashboard')}
+               <Link to="/dashboard" className="flex items-center gap-2 bg-navy text-white px-4 py-2 md:px-6 md:py-2.5 rounded-full font-bold text-xs md:text-sm hover:scale-105 transition-all shadow-lg">
+                  <UserIcon size={14} className="text-yellow" />
+                  <span className="hidden sm:inline">{t('nav.dashboard')}</span>
+                  <span className="sm:hidden">App</span>
                </Link>
             ) : (
-              <div className="flex items-center gap-3">
+              <div className="hidden sm:flex items-center gap-3">
                 <Link to="/login?flow=login" className="bg-white/10 backdrop-blur-md border border-white/20 px-6 py-2.5 rounded-full font-bold text-sm hover:bg-white/20 transition-all">
                   {t('nav.login')}
                 </Link>
@@ -266,7 +269,7 @@ export default function Home() {
               </div>
             )}
 
-            <button className="lg:hidden" onClick={() => setMobileMenuOpen(true)}>
+            <button className="lg:hidden p-1" onClick={() => setMobileMenuOpen(true)}>
               <Menu size={28} />
             </button>
           </div>
@@ -275,7 +278,7 @@ export default function Home() {
 
 
       {/* Hero Section */}
-      <section className="relative h-[90vh] min-h-[800px] flex items-center justify-center pt-20 overflow-hidden">
+      <section className="relative h-auto lg:h-[90vh] min-h-0 lg:min-h-[800px] py-16 lg:py-0 flex items-center justify-center pt-28 lg:pt-20 overflow-hidden">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0">
           <img 
@@ -287,14 +290,14 @@ export default function Home() {
         </div>
 
         {/* Booking Card */}
-        <div className="relative z-10 w-full max-w-xl px-6">
+        <div className="relative z-10 w-full max-w-xl px-4 sm:px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-white rounded-[2rem] shadow-2xl overflow-hidden p-8 md:p-10 border border-white/20"
+            className="bg-white rounded-[1.5rem] sm:rounded-[2rem] shadow-2xl overflow-hidden p-5 sm:p-8 md:p-10 border border-white/20"
           >
             {/* Tabs */}
-            <div className="flex items-center justify-between mb-10 border-b border-slate-100 pb-px">
+            <div className="flex items-center justify-between mb-6 sm:mb-10 border-b border-slate-100 pb-px gap-1 sm:gap-2">
               <TabButton 
                 active={activeTab === 'order'} 
                 onClick={() => setActiveTab('order')} 
@@ -317,7 +320,7 @@ export default function Home() {
 
             <div className="space-y-6">
               <div className="space-y-1">
-                <h2 className="text-4xl font-black mb-2 leading-none tracking-tight">{t('hero.book_load')}</h2>
+                <h2 className="text-2xl sm:text-4xl font-black mb-1 sm:mb-2 leading-none tracking-tight">{t('hero.book_load')}</h2>
                 <p className="text-slate-500 font-medium text-sm">{t('booking.efficiency_desc')}</p>
               </div>
 
@@ -910,17 +913,17 @@ function TabButton({ active, onClick, icon: Icon, label }: any) {
     <button 
       onClick={onClick}
       className={cn(
-        "flex flex-col items-center gap-2 pb-6 border-b-[6px] transition-all flex-1 text-center",
+        "flex flex-col items-center gap-1 sm:gap-2 pb-3 sm:pb-6 border-b-4 sm:border-b-[6px] transition-all flex-1 text-center min-w-0 overflow-hidden",
         active ? "border-yellow text-navy font-black" : "border-transparent text-slate-300 font-bold hover:text-slate-500"
       )}
     >
       <div className={cn(
-        "p-2 rounded-xl transition-all",
+        "p-1.5 sm:p-2 rounded-xl transition-all",
         active && "bg-yellow/10"
       )}>
-        <Icon size={24} />
+        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
       </div>
-      <span className="text-[10px] uppercase tracking-[0.15em] whitespace-nowrap">{label}</span>
+      <span className="text-[8px] sm:text-[10px] uppercase tracking-[0.1em] sm:tracking-[0.15em] truncate w-full px-1">{label}</span>
     </button>
   );
 }
@@ -966,11 +969,11 @@ function StatCard({ value, label }: { value: string, label: string }) {
   }, [isInView, targetValue]);
 
   return (
-    <div ref={ref} className="bg-slate-50 p-16 rounded-[3rem] text-center border border-slate-100/50 hover:bg-yellow hover:border-yellow transition-all duration-500 group cursor-default">
-      <div className="text-7xl font-black mb-4 tracking-tighter group-hover:scale-110 transition-transform tabular-nums">
+    <div ref={ref} className="bg-slate-50 p-6 sm:p-10 lg:p-16 rounded-[2rem] sm:rounded-[3rem] text-center border border-slate-100/50 hover:bg-yellow hover:border-yellow transition-all duration-500 group cursor-default">
+      <div className="text-4xl sm:text-5xl lg:text-7xl font-black mb-2 sm:mb-4 tracking-tighter group-hover:scale-110 transition-transform tabular-nums leading-none">
         {displayValue.toLocaleString()}{suffix}
       </div>
-      <div className="font-bold text-slate-400 group-hover:text-navy uppercase text-[10px] tracking-[0.2em]">
+      <div className="font-bold text-slate-400 group-hover:text-navy uppercase text-[9px] sm:text-[10px] tracking-[0.2em]">
         {label}
       </div>
     </div>
