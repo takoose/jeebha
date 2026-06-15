@@ -196,7 +196,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // OurStory
     'story.title': 'Our Story',
-    'story.subtitle': 'Founded in 2024, Jeebha is on a mission to digitize the construction supply chain in Africa.',
+    'story.subtitle': 'Founded in 2026, Jeebha is on a mission to digitize the construction supply chain in Africa.',
     'story.p1': 'Jeebha was born from a simple observation: the construction industry in North Africa is massive but fragmented. Contractors spend hours searching for materials, suppliers struggle with logistics, and transparency is rare.',
     'story.p2': 'We decided to build the technology layer that connects everyone. A super-app where trust is built into the platform, and every delivery is a promise kept.',
 
@@ -503,7 +503,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // OurStory
     'story.title': "Notre histoire",
-    'story.subtitle': "Fondée en 2024, Jeebha s'est donné pour mission de numériser la chaîne d'approvisionnement de la construction en Afrique.",
+    'story.subtitle': "Fondée en 2026, Jeebha s'est donné pour mission de numériser la chaîne d'approvisionnement de la construction en Afrique.",
     'story.p1': "Jeebha est née d'un constat simple : l'industrie de la construction en Afrique du Nord est immense mais fragmentée. Les entrepreneurs passent des heures à chercher des matériaux, les fournisseurs luttent avec la logistique et la transparence est rare.",
     'story.p2': "Nous avons décidé de construire la couche technologique qui connecte tout le monde. Une super-app où la confiance est intégrée à la plateforme, et chaque livraison est une promesse tenue.",
 
@@ -1117,7 +1117,7 @@ const translations: Record<Language, Record<string, string>> = {
 
     // OurStory
     'story.title': "Taqsiḍt-nneɣ",
-    'story.subtitle': "Sbeddent di 2024, Jeebha la tetteddu i udigitel n weṣleḥ n lebni di Tefriqt.",
+    'story.subtitle': "Sbeddent di 2026, Jeebha la tetteddu i udigitel n weṣleḥ n lebni di Tefriqt.",
     'story.p1': "Jeebha tlul-d si tektit tasehlant: tamguri n lebni di Tefriqt n ugafa d tamedyant meɛni tebḍa. Imgura la-seɣrayen d sswayeɛ i unadi n iseɣtal, imawasen ṭṭfen talojistikt, u tasedmirt d tin ixuṣṣen.",
     'story.p2': "Nefren ad nesbedd talkinit n tteknoloji i unermis n yal yiwen. Asnas unṣib anda taflest tella d agerru n tanafa, u yal asiweḍ d limin yettwaḍemmen.",
 
