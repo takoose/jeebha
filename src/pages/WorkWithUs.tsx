@@ -1,15 +1,17 @@
 import { motion } from 'motion/react';
 import { Truck, HardHat, DollarSign, Clock, Shield, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '../context/LanguageContext';
 
 export default function WorkWithUs() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-white text-navy font-sans">
       {/* Hero */}
       <section className="bg-navy pt-40 pb-24 px-6 relative overflow-hidden">
-        <div className="absolute inset-0 grayscale opacity-20 bg-[url('/img/team_photo.jpg')] bg-cover bg-center"></div>
+        <div className="absolute inset-0 grayscale opacity-20 bg-[url('/img/team_photo.png')] bg-cover bg-center"></div>
         <div className="max-w-7xl mx-auto relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -17,10 +19,10 @@ export default function WorkWithUs() {
             className="max-w-3xl"
           >
             <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none mb-8">
-              Join the <br/> <span className="text-yellow italic">Jeebha Network.</span>
+              {t('work.title')}
             </h1>
             <p className="text-slate-400 font-medium text-xl leading-relaxed">
-              Whether you're a truck driver or a construction professional, our platform helps you find work and grow your income.
+              {t('work.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -38,15 +40,15 @@ export default function WorkWithUs() {
               <div className="w-16 h-16 bg-blue-100 text-blue-600 rounded-3xl flex items-center justify-center mb-8">
                 <Truck size={32} />
               </div>
-              <h2 className="text-4xl font-black mb-6 uppercase tracking-tight">Become a Driver</h2>
+              <h2 className="text-4xl font-black mb-6 uppercase tracking-tight">{t('work.become_driver')}</h2>
               <p className="text-slate-500 font-medium mb-10 leading-relaxed text-lg">
-                Own a truck? Start taking loads from our marketplace. We provide the customers, you provide the transport.
+                {t('work.driver_desc')}
               </p>
               
               <div className="space-y-6 mb-12">
-                <Benefit item="Instant Payments" icon={DollarSign} />
-                <Benefit item="Flexible Hours" icon={Clock} />
-                <Benefit item="Optimized Routes" icon={Shield} />
+                <Benefit item={t('work.benefit_instant_p')} icon={DollarSign} />
+                <Benefit item={t('work.benefit_flex_h')} icon={Clock} />
+                <Benefit item={t('work.benefit_opt_r')} icon={Shield} />
               </div>
             </div>
 
@@ -54,7 +56,7 @@ export default function WorkWithUs() {
               onClick={() => navigate('/login')}
               className="w-full bg-navy text-white font-black py-6 rounded-3xl uppercase tracking-widest text-xs hover:bg-yellow hover:text-navy transition-all shadow-xl shadow-navy/20"
             >
-              Register as Driver
+              {t('work.register_driver')}
             </button>
           </motion.div>
 
@@ -67,15 +69,15 @@ export default function WorkWithUs() {
               <div className="w-16 h-16 bg-orange-100 text-orange-600 rounded-3xl flex items-center justify-center mb-8">
                 <HardHat size={32} />
               </div>
-              <h2 className="text-4xl font-black mb-6 uppercase tracking-tight">Join as Builder</h2>
+              <h2 className="text-4xl font-black mb-6 uppercase tracking-tight">{t('work.join_builder')}</h2>
               <p className="text-slate-500 font-medium mb-10 leading-relaxed text-lg">
-                Manage your construction site digitally. Get better prices for materials and track every delivery in real-time.
+                {t('work.builder_desc')}
               </p>
               
               <div className="space-y-6 mb-12">
-                <Benefit item="Verified Materials" icon={Shield} />
-                <Benefit item="Cost Tracking" icon={DollarSign} />
-                <Benefit item="Scheduled Deliveries" icon={Clock} />
+                <Benefit item={t('work.benefit_verif_m')} icon={Shield} />
+                <Benefit item={t('work.benefit_cost_t')} icon={DollarSign} />
+                <Benefit item={t('work.benefit_sched_d')} icon={Clock} />
               </div>
             </div>
 
@@ -83,7 +85,7 @@ export default function WorkWithUs() {
               onClick={() => navigate('/login')}
               className="w-full border-4 border-navy text-navy font-black py-6 rounded-3xl uppercase tracking-widest text-xs hover:bg-navy hover:text-white transition-all shadow-xl"
             >
-              Sign up as Builder
+              {t('work.signup_builder')}
             </button>
           </motion.div>
         </div>
@@ -91,22 +93,22 @@ export default function WorkWithUs() {
 
       {/* How it works */}
       <section className="py-32 px-6 bg-navy text-white text-center">
-        <h2 className="text-4xl font-black uppercase tracking-tight mb-20 text-center">How to Join</h2>
+        <h2 className="text-4xl font-black uppercase tracking-tight mb-20 text-center">{t('work.how_join')}</h2>
         <div className="max-w-5xl mx-auto grid md:grid-cols-3 gap-12">
           <Step 
             num="01" 
-            title="Register" 
-            desc="Create your account and upload required documents (License, Vehicle ID, or Site permits)." 
+            title={t('work.step1_title')} 
+            desc={t('work.step1_desc')} 
           />
           <Step 
             num="02" 
-            title="Verification" 
-            desc="Our team will review your profile within 24 hours to ensure quality across the network." 
+            title={t('work.step2_title')} 
+            desc={t('work.step2_desc')} 
           />
           <Step 
             num="03" 
-            title="Start Earning" 
-            desc="Browse the load board or place your first materials order instantly." 
+            title={t('work.step3_title')} 
+            desc={t('work.step3_desc')} 
           />
         </div>
       </section>
