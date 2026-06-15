@@ -1,16 +1,19 @@
 import PageTemplate from '../components/PageTemplate';
 import { Mail, Phone, MapPin } from 'lucide-react';
+import { useTranslation } from '../context/LanguageContext';
 
 export default function Contact() {
+  const { t } = useTranslation();
+
   return (
     <PageTemplate 
-      title="Contact Us"
-      subtitle="Have questions? Our team is available 24/7 to assist you. Reach out via any of the channels below."
+      title={t('contact.title')}
+      subtitle={t('contact.subtitle')}
       content={
         <div className="grid lg:grid-cols-3 gap-8">
-           <ContactCard icon={Mail} title="Email" value="hello@jeebha.com" />
-           <ContactCard icon={Phone} title="Phone" value="+213 550 00 00 00" />
-           <ContactCard icon={MapPin} title="Headquarters" value="Didouche Mourad, Algiers" />
+           <ContactCard icon={Mail} title={t('contact.email')} value="hello@jeebha.com" />
+           <ContactCard icon={Phone} title={t('contact.phone')} value="+213 550 00 00 00" />
+           <ContactCard icon={MapPin} title={t('contact.hq')} value="Didouche Mourad, Algiers" />
         </div>
       }
     />
