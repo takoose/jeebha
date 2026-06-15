@@ -720,7 +720,7 @@ export default function Home() {
           </div>
           <div className="pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-8 text-slate-500 text-xs font-bold uppercase tracking-widest">
             <div className="flex items-center gap-8">
-               <span>&copy; 2024 Jeebha Tech.</span>
+               <span>&copy; 2026 Jeebha Tech.</span>
                <span className="hover:text-white transition-colors cursor-pointer">{t('footer.privacy')}</span>
                <span className="hover:text-white transition-colors cursor-pointer">{t('footer.terms')}</span>
             </div>
