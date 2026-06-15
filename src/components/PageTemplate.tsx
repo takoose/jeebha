@@ -99,7 +99,7 @@ export default function PageTemplate({ title, subtitle, content, heroImage }: Pa
 
       <footer className="bg-slate-50 py-12 px-8 border-t border-slate-100">
          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8 text-slate-400 text-xs font-bold uppercase tracking-widest">
-            <span>&copy; 2024 Jeebha Technologies.</span>
+            <span>&copy; 2026 Jeebha Technologies.</span>
             <div className="flex gap-8">
                <span className="hover:text-navy cursor-pointer">{t('footer.privacy')}</span>
                <span className="hover:text-navy cursor-pointer">{t('footer.terms')}</span>
