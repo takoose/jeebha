@@ -1,17 +1,19 @@
 import PageTemplate from '../components/PageTemplate';
 import { Settings, Hammer, Zap } from 'lucide-react';
+import { useTranslation } from '../context/LanguageContext';
 
 export default function HireMachinery() {
+  const { t } = useTranslation();
   return (
     <PageTemplate 
-      title="Hire Machinery"
-      subtitle="Heavy equipment at your fingertips. From excavators to cranes, our fleet is ready to deploy to your site."
-      heroImage="/img/logistics_fleet.jpg"
+      title={t('machinery.title')}
+      subtitle={t('machinery.subtitle')}
+      heroImage="/img/logistics_fleet.png"
       content={
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-           <EquipmentCard title="Excavators" price="From 15,000 DZD/day" />
-           <EquipmentCard title="Concrete Mixers" price="From 8,000 DZD/day" />
-           <EquipmentCard title="Crane Trucks" price="From 25,000 DZD/day" />
+           <EquipmentCard title={t('machinery.excavators')} price={`${t('machinery.from')} 15,000 DZD/${t('machinery.day')}`} />
+           <EquipmentCard title={t('machinery.mixers')} price={`${t('machinery.from')} 8,000 DZD/${t('machinery.day')}`} />
+           <EquipmentCard title={t('machinery.cranes')} price={`${t('machinery.from')} 25,000 DZD/${t('machinery.day')}`} />
         </div>
       }
     />
