@@ -8,7 +8,8 @@ import {
   Clock,
   CheckCircle2,
   AlertCircle,
-  Info
+  Info,
+  Menu
 } from 'lucide-react';
 import Sidebar from './Sidebar';
 import { subscribeToNotifications, Notification } from '../services/notificationService';
@@ -29,6 +30,7 @@ export default function Layout({ children, user }: LayoutProps) {
   const { t } = useTranslation();
   const [notifications, setNotifications] = useState<Notification[]>([]);
   const [showNotifications, setShowNotifications] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -64,18 +66,28 @@ export default function Layout({ children, user }: LayoutProps) {
 
   return (
     <div className="min-h-screen bg-slate-50 flex overflow-hidden">
-      <Sidebar />
-      <div className="flex-1 ml-64 flex flex-col overflow-hidden">
-        <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-8 shrink-0 sticky top-0 z-40">
-          <div className="flex items-center bg-slate-100 rounded-lg px-3 py-1.5 w-96 border border-slate-200">
-            <Search size={18} className="text-slate-400 mr-2" />
-            <input 
-              type="text" 
-              placeholder={t('nav.search_placeholder')} 
-              className="bg-transparent text-sm w-full outline-none text-slate-600 border-none focus:ring-0"
-            />
+      <Sidebar isOpen={sidebarOpen} onClose={() => setSidebarOpen(false)} />
+      <div className="flex-1 lg:ml-64 flex flex-col overflow-hidden w-full">
+        <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 sm:px-8 shrink-0 sticky top-0 z-40">
+          <div className="flex items-center flex-1 max-w-full md:max-w-xl mr-4 gap-2">
+            {/* Hamburger button on mobile */}
+            <button 
+              onClick={() => setSidebarOpen(true)} 
+              className="lg:hidden p-2 text-slate-500 hover:text-navy hover:bg-slate-50 rounded-xl border border-slate-100 bg-white shadow-sm shrink-0"
+              aria-label="Toggle Navigation Sidebar"
+            >
+              <Menu size={20} />
+            </button>
+            <div className="hidden sm:flex items-center bg-slate-100 rounded-lg px-3 py-1.5 w-full md:w-96 border border-slate-200">
+              <Search size={18} className="text-slate-400 mr-2" />
+              <input 
+                type="text" 
+                placeholder={t('nav.search_placeholder')} 
+                className="bg-transparent text-sm w-full outline-none text-slate-600 border-none focus:ring-0"
+              />
+            </div>
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex items-center gap-3 sm:gap-6 shrink-0">
             <LanguagePicker />
             
             <div className="relative" ref={dropdownRef}>
@@ -100,7 +112,7 @@ export default function Layout({ children, user }: LayoutProps) {
                     initial={{ opacity: 0, y: 10, scale: 0.95 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                    className="absolute right-0 mt-2 w-96 bg-white rounded-[2rem] shadow-2xl border border-slate-100 z-50 overflow-hidden"
+                    className="absolute right-0 mt-2 w-[calc(100vw-2rem)] sm:w-96 bg-white rounded-[2rem] shadow-2xl border border-slate-100 z-50 overflow-hidden"
                   >
                     <div className="p-6 border-b border-slate-100 flex items-center justify-between bg-slate-50/50">
                       <div>
@@ -112,7 +124,7 @@ export default function Layout({ children, user }: LayoutProps) {
                       </button>
                     </div>
 
-                    <div className="max-h-[450px] overflow-y-auto">
+                    <div className="max-h-[350px] overflow-y-auto">
                       {notifications.length === 0 ? (
                         <div className="p-12 text-center">
                           <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mx-auto mb-4 border border-slate-100">
@@ -149,7 +161,7 @@ export default function Layout({ children, user }: LayoutProps) {
                                 <div className="flex items-center gap-2 mt-2">
                                   <Clock size={10} className="text-slate-300" />
                                   <span className="text-[9px] font-bold text-slate-300 uppercase tracking-widest">
-                                    {n.createdAt?.toDate?.() ? n.createdAt.toDate().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : 'Just now'}
+                                    {n.createdAt?.toDate?.() ? n.createdAt.toDate().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : t('template.just_now')}
                                   </span>
                                 </div>
                               </div>
@@ -170,15 +182,15 @@ export default function Layout({ children, user }: LayoutProps) {
             </div>
             <button 
               onClick={() => navigate('/products')}
-              className="bg-navy text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors flex items-center gap-2"
+              className="bg-navy text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg text-sm font-medium hover:bg-slate-800 transition-colors flex items-center gap-2 shadow-sm"
             >
               <Plus size={18} />
-              <span>{t('nav.new_order')}</span>
+              <span className="hidden sm:inline">{t('nav.new_order')}</span>
             </button>
           </div>
         </header>
 
-        <main className="flex-1 overflow-y-auto p-8">
+        <main className="flex-1 overflow-y-auto p-4 sm:p-8">
           <div className="max-w-7xl mx-auto">
             {children}
           </div>
