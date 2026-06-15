@@ -1,6 +1,7 @@
 import { motion } from 'motion/react';
 import { Search, MapPin, Briefcase, Users, Star, ArrowUpRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '../context/LanguageContext';
 
 const jobs = [
   { id: 1, title: 'Operations Manager', area: 'Logistics', location: 'Algiers, DZ', type: 'Full-time' },
@@ -12,6 +13,7 @@ const jobs = [
 
 export default function Careers() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-white text-navy font-sans">
@@ -25,13 +27,13 @@ export default function Careers() {
             className="space-y-6"
           >
             <div className="bg-yellow text-navy px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest inline-block mb-4">
-              Join the construction revolution
+              {t('careers.badge')}
             </div>
             <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none mb-8">
-              Building the <br/> <span className="text-yellow">future</span> of Africa.
+              {t('careers.title')}
             </h1>
             <p className="text-slate-400 font-medium text-xl max-w-2xl mx-auto leading-relaxed">
-              We're looking for builders, thinkers, and doers to help us digitize the largest industry in the world.
+              {t('careers.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -42,19 +44,19 @@ export default function Careers() {
         <div className="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-12 text-center">
           <div>
             <p className="text-4xl font-black text-navy mb-1 italic">1200+</p>
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Team Members</p>
+            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">{t('careers.team_members')}</p>
           </div>
           <div>
             <p className="text-4xl font-black text-navy mb-1 italic">15+</p>
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Offices</p>
+            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">{t('careers.offices')}</p>
           </div>
           <div>
             <p className="text-4xl font-black text-navy mb-1 italic">4</p>
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Major Clusters</p>
+            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">{t('careers.major_clusters')}</p>
           </div>
           <div>
             <p className="text-4xl font-black text-navy mb-1 italic">$50M+</p>
-            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Raised to build</p>
+            <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">{t('careers.raised')}</p>
           </div>
         </div>
       </section>
@@ -64,14 +66,14 @@ export default function Careers() {
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end gap-8 mb-16">
             <div>
-              <h2 className="text-4xl font-black uppercase tracking-tight mb-4">Open Positions</h2>
-              <p className="text-slate-500 font-medium">Browse our current openings and find your fit.</p>
+              <h2 className="text-4xl font-black uppercase tracking-tight mb-4">{t('careers.open_positions')}</h2>
+              <p className="text-slate-500 font-medium">{t('careers.browse_openings')}</p>
             </div>
             <div className="relative w-full md:w-80">
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400" size={18} />
               <input 
                 type="text" 
-                placeholder="Search jobs..."
+                placeholder={t('careers.search_placeholder')}
                 className="w-full bg-slate-50 border border-slate-100 rounded-2xl py-4 pl-12 pr-4 font-bold text-sm outline-none focus:border-yellow"
               />
             </div>
@@ -105,8 +107,8 @@ export default function Careers() {
             <div className="absolute inset-x-0 bottom-0 h-1 bg-yellow transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500"></div>
             <img src="/img/team_photo.png" className="absolute inset-0 w-full h-full object-cover opacity-5 pointer-events-none" alt="Team" />
             <Users size={40} className="mx-auto mb-6 text-yellow" />
-            <h4 className="text-xl font-black mb-4 uppercase tracking-tight">Not seeing the right fit?</h4>
-            <p className="text-slate-500 font-bold text-sm uppercase tracking-widest mb-8">Send us your CV anyway, we're always looking for talents</p>
+            <h4 className="text-xl font-black mb-4 uppercase tracking-tight">{t('careers.not_seeing_fit')}</h4>
+            <p className="text-slate-500 font-bold text-sm uppercase tracking-widest mb-8">{t('careers.send_cv')}</p>
             <button className="text-navy font-black text-xs uppercase tracking-widest hover:underline decoration-yellow decoration-4">talent@jeebha.com</button>
           </div>
         </div>
@@ -114,11 +116,11 @@ export default function Careers() {
 
       {/* Footer CTA */}
       <section className="bg-yellow py-32 px-6 text-center">
-        <h2 className="text-5xl md:text-7xl font-black text-navy tracking-tighter mb-12">
-          Ready to <br/> build something <br/> <span className="italic">massive?</span>
+        <h2 className="text-5xl md:text-7xl font-black text-navy tracking-tighter mb-12 leading-tight">
+          {t('careers.ready_build_massive')}
         </h2>
         <button className="bg-navy text-white px-12 py-6 rounded-3xl font-black text-sm uppercase tracking-[0.2em] shadow-2xl shadow-navy/20 hover:scale-105 transition-all">
-          Apply Now
+          {t('careers.apply_now')}
         </button>
       </section>
     </div>
