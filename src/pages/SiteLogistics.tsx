@@ -17,7 +17,7 @@ import { auth, db } from '../firebase';
 import { doc, updateDoc } from 'firebase/firestore';
 import { motion, AnimatePresence } from 'motion/react';
 import { cn } from '../lib/utils';
-import LanguagePicker from './LanguagePicker';
+import LanguagePicker from '../components/LanguagePicker';
 import { useTranslation } from '../context/LanguageContext';
 
 interface LayoutProps {
