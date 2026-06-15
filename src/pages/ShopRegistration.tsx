@@ -1,9 +1,11 @@
 import { motion } from 'motion/react';
 import { Store, TrendingUp, Users, Globe, ShieldCheck, ArrowRight, Check } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from '../context/LanguageContext';
 
 export default function ShopRegistration() {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   return (
     <div className="min-h-screen bg-white text-navy font-sans">
@@ -17,13 +19,13 @@ export default function ShopRegistration() {
             className="max-w-3xl"
           >
             <div className="inline-flex items-center gap-2 bg-yellow text-navy px-4 py-1.5 rounded-full text-[10px] font-black uppercase tracking-widest mb-8">
-              <Store size={14} /> Shop Solutions
+              <Store size={14} /> {t('shop.solution')}
             </div>
             <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter leading-none mb-8">
-              Grow your <br/> sales <span className="text-yellow">digitally.</span>
+              {t('shop.title')}
             </h1>
             <p className="text-slate-400 font-medium text-xl leading-relaxed">
-              Join the largest network of construction suppliers in North Africa. Reach more builders and manage orders with professional tools.
+              {t('shop.subtitle')}
             </p>
           </motion.div>
         </div>
@@ -34,18 +36,18 @@ export default function ShopRegistration() {
         <div className="max-w-7xl mx-auto grid lg:grid-cols-3 gap-12">
           <ValueCard 
             icon={TrendingUp} 
-            title="Increased Revenue" 
-            desc="Access thousands of active builders and contractors who are looking for materials every day." 
+            title={t('shop.rev_title')} 
+            desc={t('shop.rev_desc')} 
           />
           <ValueCard 
             icon={Users} 
-            title="Customer Management" 
-            desc="Built-in tools to handle orders, payments, and customer inquiries all in one place." 
+            title={t('shop.cust_title')} 
+            desc={t('shop.cust_desc')} 
           />
           <ValueCard 
             icon={Globe} 
-            title="Digital Presence" 
-            desc="Get a professional digital storefront for your shop without any technical skills required." 
+            title={t('shop.dig_title')} 
+            desc={t('shop.dig_desc')} 
           />
         </div>
       </section>
@@ -55,37 +57,37 @@ export default function ShopRegistration() {
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <div className="space-y-12">
-              <h2 className="text-5xl font-black tracking-tight leading-none uppercase">Why list on Jeebha?</h2>
+              <h2 className="text-5xl font-black tracking-tight leading-none uppercase">{t('shop.why_list')}</h2>
               
               <div className="grid gap-10">
                 <FeatureRow 
-                  title="Verified Logistics" 
-                  desc="We handle the shipping. Our fleet of verified drivers will pick up orders from your shop." 
+                  title={t('shop.log_title')} 
+                  desc={t('shop.log_desc')} 
                 />
                 <FeatureRow 
-                  title="Weekly Payouts" 
-                  desc="Reliable and automated payments directly to your bank account every week." 
+                  title={t('shop.pay_title')} 
+                  desc={t('shop.pay_desc')} 
                 />
                 <FeatureRow 
-                  title="Marketing Support" 
-                  desc="We promote your best products and offers to our growing community of builders." 
+                  title={t('shop.mkt_title')} 
+                  desc={t('shop.mkt_desc')} 
                 />
               </div>
             </div>
             
             <div className="bg-white p-12 rounded-[4rem] shadow-2xl border border-slate-100">
-               <h3 className="text-3xl font-black mb-8 uppercase tracking-tight">Ready to start?</h3>
+               <h3 className="text-3xl font-black mb-8 uppercase tracking-tight">{t('shop.ready_start')}</h3>
                <div className="space-y-6">
                  <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100 flex items-center justify-between">
                     <div>
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Commission</p>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{t('shop.commission')}</p>
                       <p className="font-black text-2xl text-navy">5.0%</p>
                     </div>
                     <Check size={24} className="text-green-500" />
                  </div>
                  <div className="p-6 bg-slate-50 rounded-3xl border border-slate-100 flex items-center justify-between">
                     <div>
-                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Listing Fee</p>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">{t('shop.listing_fee')}</p>
                       <p className="font-black text-2xl text-navy">Free</p>
                     </div>
                     <Check size={24} className="text-green-500" />
@@ -94,7 +96,7 @@ export default function ShopRegistration() {
                   onClick={() => navigate('/login?flow=signup')}
                   className="w-full bg-navy text-white font-black py-6 rounded-3xl uppercase tracking-widest text-sm hover:bg-yellow hover:text-navy transition-all shadow-xl shadow-navy/20 mt-8"
                  >
-                   Register Your Shop Now
+                   {t('shop.register_now')}
                  </button>
                </div>
             </div>
@@ -105,8 +107,8 @@ export default function ShopRegistration() {
       {/* Trust */}
       <section className="py-24 px-6 text-center">
          <ShieldCheck size={48} className="mx-auto mb-8 text-yellow" />
-         <h2 className="text-4xl font-black mb-4 uppercase tracking-tight">Trusted by 5,000+ Suppliers</h2>
-         <p className="text-slate-400 font-bold text-sm uppercase tracking-widest">Join the network that's building Africa.</p>
+         <h2 className="text-4xl font-black mb-4 uppercase tracking-tight">{t('shop.trusted')}</h2>
+         <p className="text-slate-400 font-bold text-sm uppercase tracking-widest">{t('shop.join_net')}</p>
       </section>
     </div>
   );
