@@ -1,5 +1,4 @@
 import PageTemplate from '../components/PageTemplate';
-import { Truck } from 'lucide-react';
 import { useTranslation } from '../context/LanguageContext';
 
 export default function SiteLogistics() {
@@ -23,8 +22,14 @@ export default function SiteLogistics() {
                    <div className="px-6 py-3 bg-slate-100 rounded-full font-bold text-navy text-sm">{t('logistics.eta_prediction')}</div>
                 </div>
              </div>
-             <div className="bg-slate-100 rounded-[3rem] aspect-square flex items-center justify-center">
-                <Truck size={120} className="text-slate-300" />
+             
+             {/* Replaced the Truck icon placeholder block with an image */}
+             <div className="bg-slate-100 rounded-[3rem] aspect-square overflow-hidden">
+                <img 
+                  src="/img/visibility.png" // Replace with your actual image path
+                  alt={t('logistics.visibility_title')} 
+                  className="w-full h-full object-cover"
+                />
              </div>
           </div>
         </div>
