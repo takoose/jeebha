@@ -8,7 +8,7 @@ export default function Safety() {
     <PageTemplate 
       title={t('safety.title')}
       subtitle={t('safety.subtitle')}
-      heroImage="/img/icon_safety.png"
+      heroImage="/img/safety.png"
       content={
         <div className="grid md:grid-cols-3 gap-8 text-center">
            <div className="p-10 space-y-6">
