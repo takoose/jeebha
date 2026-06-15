@@ -11,7 +11,7 @@ import {
   Info,
   Menu
 } from 'lucide-react';
-import Sidebar from './Sidebar';
+import Sidebar from '../components/Sidebar';
 import { subscribeToNotifications, Notification } from '../services/notificationService';
 import { auth, db } from '../firebase';
 import { doc, updateDoc } from 'firebase/firestore';
