@@ -1,28 +1,31 @@
 import PageTemplate from '../components/PageTemplate';
 import { ShoppingBag, Star, ShieldCheck } from 'lucide-react';
+import { useTranslation } from '../context/LanguageContext';
 
 export default function MaterialsMarketplace() {
+  const { t } = useTranslation();
+
   return (
     <PageTemplate 
-      title="Materials Marketplace"
-      subtitle="The largest catalog of construction materials in North Africa. Verified suppliers, transparent pricing, and instant delivery."
-      heroImage="/img/materials_showcase.jpg"
+      title={t('nav.materials')}
+      subtitle={t('materials.subtitle')}
+      heroImage="/img/materials_showcase.png"
       content={
         <div className="grid md:grid-cols-3 gap-12">
           <FeatureCard 
             icon={ShoppingBag}
-            title="Full Catalog"
-            desc="From cement and steel to finishings and sanitaryware, find everything you need."
+            title={t('materials.catalog_title')}
+            desc={t('materials.catalog_desc')}
           />
           <FeatureCard 
             icon={Star}
-            title="Verified Quality"
-            desc="Every supplier undergoes a rigorous verification process to ensure material quality."
+            title={t('materials.quality_title')}
+            desc={t('materials.quality_desc')}
           />
           <FeatureCard 
             icon={ShieldCheck}
-            title="Safe Payments"
-            desc="Escrow payments ensure your money is only released when the materials arrive."
+            title={t('materials.payments_title')}
+            desc={t('materials.payments_desc')}
           />
         </div>
       }
